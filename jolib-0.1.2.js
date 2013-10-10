@@ -5,7 +5,7 @@
 	
 	Copyright 2013 emptydream
 	http://www.emptydream.net
-	Released under the GPLv3 license
+	Released under the GPL license
 	http://www.gnu.org/licenses/gpl.html
 */
 (function(window)
