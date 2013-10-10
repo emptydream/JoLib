@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jolib Example</title>
+
+<script type="text/javascript" src="jolib-0.1.1.js"></script>
+	
+<script type="text/javascript">
+<!--
+function fn_btn1()
+{
+	var strVal = document.getElementById("ta1").value;
+
+	//it could deal with every type of strings
+	if(escape(strVal).indexOf("%u") > -1)
+		document.getElementById("ta2").value = jolib.strStrToWebUnicode(strVal);
+	else if((strVal.indexOf("&#x") > -1) || (strVal.indexOf("&#") > -1))
+		document.getElementById("ta2").value = jolib.strWebUnicodeToStr(strVal);
+	else
+		document.getElementById("ta2").value = strVal;
+}
+
+function fn_btn2()
+{
+	var strVal = document.getElementById("ta2").value;
+
+	document.getElementById("ta1").value = jolib.strWebUnicodeToStr(strVal);
+}
+//-->
+</script>
+
+<style type="text/css">
+</style>
+
+</head>
+<body>
+	<div>
+	Jolib Example
+	</div>
+	<br />
+	
+	<div onkeydown="if(event.keyCode == 13)fn_btn1();">
+		<div style="margin:0 0 5px 160px;">
+		한글 &#60;&#45;&#45;&#45;&#62; 웹코드<br />
+		</div>
+		<div style="float:left;">
+		<textarea id="ta1" cols="20" rows="5"></textarea>
+		</div>
+		
+		<div style="float:left; margin:15px;">
+			<div style="margin-bottom:5px;">
+			<input type="button" id="btn1" value="->" onclick="fn_btn1();" style="clear:both;"/>
+			</div>
+			<div>
+			<input type="button" id="btn2" value="<-" onclick="fn_btn2();" style="clear:both;"/>
+			</div>
+		</div>
+		
+		<div style="float:left;">
+		<textarea id="ta2" cols="20" rows="5"></textarea>
+		</div>
+		
+	</div>
+</body>
+</html>

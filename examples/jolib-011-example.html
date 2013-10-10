@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jolib Example</title>
+
+<script type="text/javascript" src="jolib-0.1.1.js"></script>
+	
+<script type="text/javascript">
+<!--
+function fn_onload()
+{
+	var strTst = ["서울","여주","부산","먁꿍","뚜릅","뿌루","꾸루룹","쌰랄"];
+	
+	document.getElementById("test-span1").innerHTML 
+		= jolib.strGetWordRosseoStr(strTst[0]) + " "
+		+ jolib.strGetWordRouroStr(strTst[1]);
+	
+	document.getElementById("test-span2").innerHTML 
+		= jolib.strGetWordUnnunStr(strTst[2]) + " "
+		+ jolib.strGetWordUlrulStr(strTst[3]);
+
+	document.getElementById("test-span3").innerHTML 
+		= jolib.strGetWordAyaStr(strTst[4]) + " "
+		+ jolib.strGetWordIgaStr(strTst[5]);
+
+	document.getElementById("test-span4").innerHTML 
+		= jolib.strGetWordWagwaStr(strTst[6]) + " "
+		+ jolib.strGetWordRagoStr(strTst[7]);	
+		
+	document.getElementById("test-span5").innerHTML 
+		= strTst[6] + "<br />자소: "
+		+ jolib.strGetJasoStr(strTst[6])
+		+ "<br />Hex:" + jolib.arrayStrToHex(strTst[6]);
+	
+	document.getElementById("test-span6").value 
+		= jolib.strStrToWebUnicode(strTst[6]);
+		
+}
+
+window.onload=fn_onload;
+//-->
+</script>
+
+</head>
+<body>
+	<div>
+	Jolib Example
+	</div>
+	<br />
+	
+	<div id="test-div1">
+	<span id="test-span1"></span> 갑니다.<br />
+	<span id="test-span2"></span> 먹는다.<br />
+	<span id="test-span3"></span> 무너져.<br />
+	<span id="test-span4"></span> 합니다.<br />
+	<br />
+	<span id="test-span5"></span><br />
+	web hex code:<br />
+	<textarea id="test-span6"></textarea>
+	</div>
+</body>
+</html>
