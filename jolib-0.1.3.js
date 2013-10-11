@@ -1,7 +1,7 @@
 /*
 	jolib: hangul postpositional word(Josa) Javascript Library 
-	version: 0.1.2
-	Date: 2013-10-10
+	version: 0.1.3
+	Date: 2013-10-11
 	
 	Copyright 2013 emptydream
 	http://www.emptydream.net
@@ -15,8 +15,8 @@ var
 	//About this library
 	arrAbout = 
 	{
-		Version: "0.1.2",
-		Created: "2013-10-10",
+		Version: "0.1.3",
+		Created: "2013-10-11",
 		Author: "emptydream",
 		Blog: "www.emptydream.net"
 	};
@@ -59,7 +59,7 @@ var jolib =
 	boolIsHangulHex: function(_intSrc)
 	{
 		//Hangul range on hexadecimal
-		if(_intSrc>0xAC00 && _intSrc<0xD7A3)
+		if((_intSrc >= 0xAC00) && (_intSrc <= 0xD7A3))
 			return true;	//Hangul
 		else 
 			return false;	//others
@@ -89,7 +89,7 @@ var jolib =
 		if(_strSrc == "") return "";
 		
 		//search for the hangul character from the last
-		for(var i=_strSrc.length-1; i>=0; i--)
+		for(var i=_strSrc.length-1; i >= 0; i--)
 		{
 			if(this.boolIsHangulChr(_strSrc[i]) == true)
 			{
@@ -114,7 +114,7 @@ var jolib =
 		var strUnicode = "";
 		var intSrcLen = _strSrc.length;
 
-		for(var i=0; i<intSrcLen; i++)
+		for(var i = 0; i < intSrcLen; i++)
 		{
 			//change the characters one by one
 			strUnicode += this.charChrToWebUnicode(_strSrc[i]);
@@ -183,9 +183,9 @@ var jolib =
 		var intSrcLen = _strSrc.length;
 		var arrResult = new Array();	//result array
 		
-		if(intSrcLen <=0) return "";
+		if(intSrcLen <= 0) return "";
 			
-		for(var i=0; i<intSrcLen; i++)
+		for(var i = 0; i < intSrcLen; i++)
 		{
 			//change character to hex
 			arrResult[i] = this.intChrToHex(_strSrc[i]);
@@ -232,7 +232,7 @@ var jolib =
 		var intSrcLen = _arrSrc.length;
 		var strResult = "";
 		
-		if(intSrcLen <=0) return "";
+		if(intSrcLen <= 0) return "";
 			
 		for(var i=0; i<intSrcLen; i++)
 		{
@@ -359,6 +359,7 @@ var jolib =
 		var intSrcHex = parseInt(escape(_charSrc).replace("%u", "0x"));
 
 		if(intSrcHex < 0xAC00 || intSrcHex > 0xD7A3)
+			//it's not a hangul, just pass
 			return _charSrc;
 		else
 		{
@@ -377,6 +378,7 @@ var jolib =
 		var intSrcHex = parseInt(escape(_charSrc).replace("%u", "0x"), 16);
 
 		if(intSrcHex < 0xAC00 || intSrcHex > 0xD7A3)
+			//it's not a hangul, just pass
 			return _charSrc;
 		else
 		{
